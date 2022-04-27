@@ -1,4 +1,4 @@
 import timer from './modules/timer';
 
 
-timer('28 april 2022');
+timer('29 april 2022');
