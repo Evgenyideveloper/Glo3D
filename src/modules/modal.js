@@ -14,8 +14,8 @@ const modal =()=>{
 					 modal.style.opacity = op;
 					 op += 0.1;
 					 modal.style.display = 'block';
-					 setTimeout (func, 100);
-				 }, 100);  
+					 setTimeout (func, 50);
+				 }, 50);  
 			}else {
 				 modal.style.display = 'block';
 			};
