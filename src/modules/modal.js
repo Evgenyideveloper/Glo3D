@@ -1,3 +1,5 @@
+import { animate } from './helpers';
+
 const modal =()=>{
 	const modal = document.querySelector('.popup');
 	const closeBtn = modal.querySelector('.popup-close');
@@ -6,16 +8,19 @@ const modal =()=>{
 	buttons.forEach((item)=>{
 		item.addEventListener('click', ()=>{	
 			if (document.documentElement.clientWidth > 768) {
-				let op = 0;
-				 setTimeout(function func() {
-					 if (op > 1){					
-						return;
-					 }					
-					 modal.style.opacity = op;
-					 op += 0.1;
-					 modal.style.display = 'block';
-					 setTimeout (func, 50);
-				 }, 50);  
+				
+			animate({
+				duration: 1000,
+				timing(timeFraction) {
+					return timeFraction;
+				},
+				draw(progress) {
+					modal.style.opacity = progress ;
+					modal.style.display = 'block';
+				}
+			});
+
+				
 			}else {
 				 modal.style.display = 'block';
 			};
