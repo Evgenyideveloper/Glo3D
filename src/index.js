@@ -6,6 +6,7 @@ import validateForm from './modules/validateForm';
 import tabs from './modules/tabs';
 import slider from './modules/slider';
 import calc from './modules/calc';
+import calc from './modules/sendForm';
 
 
 timer('3 may 2022');
@@ -16,3 +17,12 @@ validateForm();
 tabs();
 slider();
 calc();
+sendForm({
+    formId:'form',
+    someElem: [
+        {
+            type: 'block',
+            id: 'total'
+        }
+    ]
+});

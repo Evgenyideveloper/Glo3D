@@ -5,7 +5,7 @@ const validateForm = () =>{
 	forms.forEach(function(item){
 		const typeText = item.querySelector('input[type=text]');	
 			typeText.addEventListener('input', (e)=>{
-				e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\s-]/, "")
+				e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\s]/, "")
 			});
 			
 		const typeEmail = item.querySelector('input[type=email]');	
@@ -15,12 +15,12 @@ const validateForm = () =>{
 			
 		const typeTel = item.querySelector('input[type=tel]');	
 			typeTel.addEventListener('input', (e)=>{
-				e.target.value = e.target.value.replace(/[^0-9()-]/, "")
+				e.target.value = e.target.value.replace(/[^-0-9()+]/, "")
 			});
 			
 		const placeholder = document.querySelector('.mess');	
 			placeholder.addEventListener('input', (e)=>{
-				e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\s-]/, "")
+				e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\s0-9.,!?]/, "")
 			});			
 			
 	}); 
