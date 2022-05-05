@@ -5,13 +5,15 @@ const menu =()=>{
 	const closeBtn = menu.querySelector('.close-btn');
 	const menuItems = menu.querySelectorAll('ul>li>a');
 	
-	const handleMenu = () =>{		
+	const handleMenu = () =>{
+		
 		menu.classList.toggle('active-menu');		
 	}
 	
 	menuBtn.addEventListener('click', handleMenu)	
 	
 	menu.addEventListener('click', (e)=>{
+		
 		if(e.target.closest('ul>li>a') || e.target.classList.contains('close-btn')){
 			handleMenu();
 		}

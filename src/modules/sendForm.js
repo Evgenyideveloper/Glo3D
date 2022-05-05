@@ -1,12 +1,17 @@
 const sendForm = ({formId, someElem = []}) =>{   	
   
-    const forms = document.querySelectorAll('form');      
+    const forms = document.querySelectorAll('form');   
+    
+    const statusBlock = document.createElement('div');
+    const loadText = 'Загрузка';
+    const errorText = 'Ошибка';
+    const successText = 'Спасибо! Наш менеджер с вами свяжется.';
 
     forms.forEach((form) =>{
         const validate = (list) =>{
             let success = true;
                 list.forEach((item) =>{
-                    if(item.classList.contains('form-email')){
+                    if(item.classList.contains('mess')){
                         if(!item.value.match(/[^а-яА-ЯёЁ\s0-9.,!?]/)){
                             success = false;
                             return false;
@@ -26,6 +31,15 @@ const sendForm = ({formId, someElem = []}) =>{
                             return false;
                         }
                     }
+
+                    if(item.classList.contains('form-email')){
+                        if(!item.value.match(/[^a-zA-Z0-9*~!'_@.-]/)){
+                            success = false;
+                            return false;
+                        }
+                    }
+
+
                 })
            return success;
             console.log(list);
@@ -47,6 +61,9 @@ const sendForm = ({formId, someElem = []}) =>{
              const formElements = form.querySelectorAll('input');
              const formData = new FormData(form)
              const formBody = {}
+
+             statusBlock.textContent = loadText;
+             form.append(statusBlock)
      
              formData.forEach((val, key) =>{
                  formBody[key] = val
@@ -67,10 +84,18 @@ const sendForm = ({formId, someElem = []}) =>{
              validate(formElements);
      
              sendData(formBody).then(data =>{
-                 console.log(data);
+                statusBlock.textContent = successText;
+                formElements.forEach((item)=>{
+                    item.value = '';
+                })
+                console.log(data);
+             })
+             .catch(error =>{
+                statusBlock.textContent = errorText;
              })
          })
-    })     
+    })
+   
 }
 
 export default sendForm

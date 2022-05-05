@@ -20,9 +20,9 @@ const timer =(deadLine)=>{
 
         if (timeRemaining <= 0) {
             clearInterval(timerId);
-            hours = 0;
-            minutes = 0;
-            seconds = 0;
+            hours = '00';
+            minutes = '00';
+            seconds = '00';
         }
 
         return {
