@@ -1,3 +1,4 @@
+
 const tabs =()=>{
 	const tabPanel = document.querySelector('.service-header');
 	const tabs = document.querySelectorAll('.service-header-tab');
@@ -18,7 +19,7 @@ const tabs =()=>{
 		}
 	})
 	
-	
+	//console.log(tabContent);
 }
 
-export default tabs
+export default tabs;
